@@ -94,7 +94,6 @@ const Model: React.FC<modelProps> = ({
       xl:w-2/5
       my-6
       mx-auto 
-      h-full 
       lg:h-auto
       md:h-auto
       "
@@ -149,7 +148,7 @@ const Model: React.FC<modelProps> = ({
             >
               <IoMdClose size={19}  />
             </button>
-            <div className="text-lg font-semibold">
+            <div className="text-lg font-bold">
                 {title}
             </div>
           </div>
@@ -158,7 +157,7 @@ const Model: React.FC<modelProps> = ({
             {body}
           </div>
           {/*footer*/}
-          <div className="flex flex-coll gap-2 p-6">
+          <div className="flex flex-col gap-2 p-6">
                <div
                 className="flex flex-row items-center gap-4 w-full"
                >
@@ -178,6 +177,7 @@ const Model: React.FC<modelProps> = ({
                   onClick={handleSubmit}
                 />
                </div>
+               {footer}
           </div>
         </div>
       </div>

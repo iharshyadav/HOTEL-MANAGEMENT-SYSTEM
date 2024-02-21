@@ -47,7 +47,7 @@ const Button:React.FC<buttonProps> = ({
              className="
              absolute
              left-4
-             top-3"
+             top-2"
             />
         )}
         {label}
