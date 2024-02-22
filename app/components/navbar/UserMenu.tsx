@@ -4,9 +4,11 @@ import Avatar from "../Avatar"
 import { useCallback, useState } from "react"
 import MenuItems from "./MenuItems"
 import useRegisterModel from "@/app/hooks/useRegisterModel"
+import useLoginModel from "@/app/hooks/useLoginModel"
 
 const UserMenu = () => {
   const registerModel = useRegisterModel();
+  const loginModel = useLoginModel();
 
     const [open, setOpen] = useState(false)
 
@@ -65,7 +67,7 @@ const UserMenu = () => {
                  <div className="flex flex-col cursor-pointer">
                     <>
                       <MenuItems
-                       onClick={()=>{}}
+                       onClick={loginModel.onOpen}
                        label="Login"
                       />
                       <MenuItems
