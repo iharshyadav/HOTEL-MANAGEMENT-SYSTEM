@@ -1,8 +1,18 @@
 "use client"
 
 import Image from "next/image"
+import prisma from  "@/app/lib/prismadb"
+import { safeUser } from "../types"
 
-const Avatar = () => {
+interface AvatarProps {
+  src : string | null | undefined
+}
+
+const Avatar:React.FC <AvatarProps> = ({
+  src
+}) => {
+
+   
   return (
     <div>
         <Image
@@ -10,7 +20,7 @@ const Avatar = () => {
         height="25"
         width="25"
         alt="Avatar"
-        src="/images/placeholder.jpg"
+        src= {src || "/images/placeholder.jpg"} 
         />
     </div>
   )

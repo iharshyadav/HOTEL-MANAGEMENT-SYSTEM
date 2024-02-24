@@ -5,8 +5,16 @@ import { useCallback, useState } from "react"
 import MenuItems from "./MenuItems"
 import useRegisterModel from "@/app/hooks/useRegisterModel"
 import useLoginModel from "@/app/hooks/useLoginModel"
+import { signOut } from "next-auth/react"
+import { safeUser } from "@/app/types"
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: safeUser | null
+}
+
+const UserMenu:React.FC <UserMenuProps> = ({
+  currentUser
+}) => {
   const registerModel = useRegisterModel();
   const loginModel = useLoginModel();
 
@@ -58,13 +66,42 @@ const UserMenu = () => {
            >
              <AiOutlineMenu />
              <div className="hidden md:block">
-              <Avatar />
+              <Avatar src = {currentUser?.image} />
              </div>
            </div>
         </div>
         {open && (
             <div className=" bg-white absolute rounded-xl shadow-md w-[40vw] md:w-3/4 overflow-hidden right-0 top-12 text-sm">
                  <div className="flex flex-col cursor-pointer">
+                  {currentUser ? (
+                    <>
+                    <MenuItems
+                     onClick={()=>{}}
+                     label="My Trips"
+                    />
+                    <MenuItems
+                     onClick={()=>{}}
+                     label="MY Favourite"
+                    />
+                    <MenuItems
+                     onClick={()=>{}}
+                     label="My Reservation"
+                    />
+                    <MenuItems
+                     onClick={()=>{}}
+                     label="MY Properties"
+                    />
+                    <MenuItems
+                     onClick={()=>{}}
+                     label="HMS My Home"
+                    />
+                    <hr />
+                    <MenuItems
+                     onClick={()=>signOut()}
+                     label="Logout"
+                    />
+                  </>
+                  ) : (
                     <>
                       <MenuItems
                        onClick={loginModel.onOpen}
@@ -75,6 +112,8 @@ const UserMenu = () => {
                        label="SignUp"
                       />
                     </>
+
+                  )}
                  </div>
             </div>
         )}
