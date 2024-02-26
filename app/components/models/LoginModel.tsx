@@ -121,7 +121,7 @@ const LoginModel = () => {
         ">
             <div className="flex-flex-row justify-center items-center gap-2">
                 <div>
-                    Already have an account?
+                    First time using HMS?
                 </div>
                 <div
                 onClick={onToggle}
@@ -131,7 +131,7 @@ const LoginModel = () => {
                 hover:underline
                 "
                 >
-                    Log in
+                    Create an account
                 </div>
             </div>
 

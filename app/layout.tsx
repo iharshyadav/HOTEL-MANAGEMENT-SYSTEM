@@ -6,6 +6,7 @@ import RegisterModel from "./components/models/RegisterModel";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModel from "./components/models/LoginModel";
 import getCurrentUser from "./actions/getCurrentUser";
+import RentModel from "./components/models/RentModel";
 
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default async function RootLayout({
       <body className={font.className}>
         {/* <Model isOpen actionLabel="Submit" /> */}
         <ToasterProvider />
+        <RentModel />
         <LoginModel />
         <RegisterModel />
         <Navbar currentUser = {currentUser} />

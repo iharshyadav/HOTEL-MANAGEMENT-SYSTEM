@@ -7,6 +7,7 @@ import useRegisterModel from "@/app/hooks/useRegisterModel"
 import useLoginModel from "@/app/hooks/useLoginModel"
 import { signOut } from "next-auth/react"
 import { safeUser } from "@/app/types"
+import useRentModel from "@/app/hooks/useRentModel"
 
 interface UserMenuProps {
   currentUser?: safeUser | null
@@ -17,12 +18,23 @@ const UserMenu:React.FC <UserMenuProps> = ({
 }) => {
   const registerModel = useRegisterModel();
   const loginModel = useLoginModel();
+  const rentModel = useRentModel();
 
     const [open, setOpen] = useState(false)
 
     const toggleMenu = useCallback(()=>{
         setOpen((value)=>!value)
     } , [])
+
+
+    const onRent = useCallback(()=>{
+      if(!currentUser){
+        return loginModel.onOpen();
+      }
+        rentModel.onOpen();
+  
+    },[loginModel,rentModel,currentUser])
+
 
   return (
     <div className="
@@ -31,7 +43,7 @@ const UserMenu:React.FC <UserMenuProps> = ({
     >
         <div className="flex flex-row items-center gap-3"> 
            <div
-        //    onClick={()=>{ }}
+           onClick={onRent}
            className="
            hidden
            md:block
@@ -92,7 +104,7 @@ const UserMenu:React.FC <UserMenuProps> = ({
                      label="MY Properties"
                     />
                     <MenuItems
-                     onClick={()=>{}}
+                     onClick={rentModel.onOpen}
                      label="HMS My Home"
                     />
                     <hr />

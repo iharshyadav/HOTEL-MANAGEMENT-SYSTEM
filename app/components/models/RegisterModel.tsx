@@ -16,12 +16,20 @@ import Input from "../inputs/Input"
 import toast from "react-hot-toast"
 import Button from "../Button"
 import { signIn } from "next-auth/react"
+import useLoginModel from "@/app/hooks/useLoginModel"
 
 
 const RegisterModel = () => {
 
     const registerModel = useRegisterModel();
+    const loginModel = useLoginModel();
     const [isLoading, setIsLoading] = useState(false);
+
+
+    const onToggle = useCallback(()=>{
+        registerModel.onClose()
+        loginModel.onOpen()
+    },[loginModel,registerModel])
 
     const {
         register,
@@ -115,7 +123,7 @@ const RegisterModel = () => {
                     Already have an account?
                 </div>
                 <div
-                onClick={registerModel.onClose}
+                onClick={onToggle}
                 className="
                 text-neutral-800
                 cursor-pointer
