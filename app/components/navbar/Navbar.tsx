@@ -4,6 +4,7 @@ import Logo from "./Logo"
 import Search from "./Search"
 import UserMenu from "./UserMenu"
 import { safeUser } from "@/app/types"
+import { Suspense } from 'react';
 
 interface NavbarProps {
   currentUser?: safeUser | null
@@ -31,7 +32,9 @@ const Navbar : React.FC <NavbarProps> = ({currentUser}) => {
               </div>
           </Container>
           <hr className="mt-3" />
-          <Categories />
+          <Suspense fallback={<div>Loading...</div>}>
+             <Categories />
+          </Suspense>
         </div>
     </div>
   )
