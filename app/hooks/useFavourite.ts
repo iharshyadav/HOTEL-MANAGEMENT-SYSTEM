@@ -56,13 +56,14 @@ const useFavourite = ({ listingId , currentUser } : IUseFavourite)=>{
 
                if(hasFavorites){
                 request =  ()=> axios.delete(`/api/favorites/${listingId}`)
+                toast.success("Successfully removed to Favourite!")
                }else{
                 request = () => axios.post(`/api/favorites/${listingId}`)
+                toast.success("Successfully added to Favourite!")
                }
 
                await request();
                router.refresh();
-               toast.success("Successfully added to Favourite!")
 
             } catch (error) {
                 toast.error("Unable to add to Favourite!")
