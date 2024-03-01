@@ -1,5 +1,6 @@
 import getCurrentUser from "../actions/getCurrentUser"
 import getReservation from "../actions/getReservations";
+import ClientOnly from "../components/ClientOnly";
 import Container from "../components/Container";
 import EmptyState from "../components/EmptyState";
 import Heading from "../components/Heading";
@@ -26,20 +27,22 @@ const ReservationPage = async () => {
 
    if(reservations.length === 0 ){
        return (
+        <ClientOnly>
          <EmptyState
-          title="No reservations found"
-          subTitle="Looks like you have no reservations on your properties."
+         title="No reservations found"
+         subTitle="Looks like you have no reservations on your properties."
          />
+         </ClientOnly>
        )
    }
 
   return (
-        <div>
+        <ClientOnly>
         <ReservationClient
           reservations= {reservations}
           currentUser = {currentUser}
         />
-        </div>
+        </ClientOnly>
   )
 }
 

@@ -1,5 +1,6 @@
 import getCurrentUser from "./actions/getCurrentUser";
 import getListings, { IListingParams } from "./actions/getListings";
+import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
@@ -19,11 +20,14 @@ const Home = async ({searchParams} : HomeProps) => {
 
     return (
 
+      <ClientOnly>
       <EmptyState ShowReset />
+     </ClientOnly>
 
     )
   }
   return (
+    <ClientOnly>
     <Container>
        <div className="
        pt-10
@@ -47,6 +51,7 @@ const Home = async ({searchParams} : HomeProps) => {
            {/* </div> */}
        </div>
     </Container>
+    </ClientOnly>
   );
 }
 

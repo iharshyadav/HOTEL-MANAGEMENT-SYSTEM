@@ -1,5 +1,6 @@
 import getCurrentUser from "../actions/getCurrentUser"
 import getReservation from "../actions/getReservations"
+import ClientOnly from "../components/ClientOnly"
 import EmptyState from "../components/EmptyState"
 import TripsClient from "./TripsClient"
 
@@ -22,20 +23,22 @@ const TripsPage = async () => {
 
     if(reservations.length === 0){
         return (
+            <ClientOnly>
             <EmptyState
              title="No trips found!"
              subTitle="Looks like you haven't reserved any trips!"
             />
+            </ClientOnly>
         )
     }
 
   return (
-    <div>
+    <ClientOnly>
         <TripsClient
          reservations= {reservations}
          currentUser = {currentUser}
         />
-    </div>
+    </ClientOnly>
   )
 }
 
