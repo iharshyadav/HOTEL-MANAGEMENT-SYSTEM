@@ -40,9 +40,9 @@ const Map: React.FC<MapProps> = ({ center }) => {
           <Marker position={center as L.LatLngExpression} />
         )}
       </MapContainer>
-      <div className='h-16'>
+      {/* <div className='h-16'>
 
-      </div>
+      </div> */}
       </div>
   )
 }

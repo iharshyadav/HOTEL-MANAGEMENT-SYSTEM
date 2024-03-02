@@ -8,6 +8,7 @@ import LoginModel from "./components/models/LoginModel";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModel from "./components/models/RentModel";
 import ClientOnly from "./components/ClientOnly";
+import SearchModel from "./components/models/SearchModel";
 
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default async function RootLayout({
         {/* <Model isOpen actionLabel="Submit" /> */}
         <ClientOnly>
         <ToasterProvider />
+        <SearchModel />
         <RentModel />
         <LoginModel />
         <RegisterModel />
