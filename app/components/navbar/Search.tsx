@@ -3,7 +3,7 @@
 import useCountries from "@/app/hooks/useCountries";
 import useSearchModel from "@/app/hooks/useSearchModel"
 import { differenceInDays } from "date-fns";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi"
 
@@ -12,6 +12,7 @@ const Search = () => {
 
   const searchModel = useSearchModel();
   const params = useSearchParams();
+  const pathName = usePathname();
 
   const { getByValue } = useCountries();
 
@@ -25,7 +26,7 @@ const Search = () => {
       return getByValue(locationvalue as string)?.label;
     }
 
-    return 'Anywhere';
+    return 'Find Location';
   }, [locationvalue, getByValue]);
 
   const durationLabel = useMemo(() => {
@@ -41,7 +42,7 @@ const Search = () => {
       return `${diff} Days`;
     }
 
-    return 'Any Week'
+    return 'Find Dates'
   }, [startDate, endDate]);
 
   const guestLabel = useMemo(() => {
@@ -52,6 +53,10 @@ const Search = () => {
     return 'Add Guests';
   }, [guestCount]);
 
+  if (pathName === '/'){
+    return null;
+  }
+
   return (
     <div
     onClick={searchModel.onOpen} 
@@ -59,8 +64,10 @@ const Search = () => {
     border-[1px]
     w-full
     md:w-auto
-    py-1
-    rounded-full
+    
+    sm:py-2
+    sm:px-4
+    rounded-lg
     shadow-sm
     hover:shadow-md
     transition
@@ -78,8 +85,14 @@ const Search = () => {
               font-semibold
               px-6
               pt-[0.9vh]
+              text-gray-600
+              hidden
+              sm:block
             '>
                 {locationLabel}
+            </div>
+            <div className="text-black p-2 font-bold block sm:hidden">
+              Search
             </div>
             <div className='
                hidden
@@ -91,6 +104,7 @@ const Search = () => {
                flex-1
                texr-center
                pt-[0.9vh]
+               text-gray-600
             '
             >
              {durationLabel}
@@ -111,7 +125,7 @@ const Search = () => {
               </div>
               <div className='
               p-2
-              bg-rose-500
+              bg-black
               rounded-full
               text-white
               '

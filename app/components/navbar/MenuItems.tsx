@@ -12,11 +12,14 @@ const MenuItems: React.FC <MenuItemsProps> = ({
   return (
     <div onClick={onClick}
     className="
-    px-4
-    py-3
+    px-3
+    py-2
+    rounded-3xl
     hover:bg-neutral-100
     transition
-    font-semibold
+    font-bold
+    sm:text-[1vw]
+    cursor-pointer
     "
     >
      {label}

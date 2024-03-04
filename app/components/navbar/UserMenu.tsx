@@ -41,6 +41,7 @@ const UserMenu:React.FC <UserMenuProps> = ({
   return (
     <div className="
      relative
+     text-black
     "
     >
         <div className="flex flex-row items-center gap-3"> 
@@ -49,25 +50,58 @@ const UserMenu:React.FC <UserMenuProps> = ({
            className="
            hidden
            md:block
-           text-sm
-           font-semibold
-           py-3
+           text-[1vw]
+           font-bold
+           py-2
            px-4
            rounded-full
            hover:bg-neutral-100
            transition
            cursor-pointer
            " >
-              HMS your home
+              Rent Home
            </div>
+           {currentUser ? (
+                    <div className='hidden sm:flex'>
+                    <MenuItems
+                     onClick={()=>router.push('/trips')}
+                     label="My Trips"
+                    />
+                    <MenuItems
+                     onClick={()=>router.push('/favourites')}
+                     label="MY Favourite"
+                    />
+                    <MenuItems
+                     onClick={()=>router.push('/reservations')}
+                     label="My Reservation"
+                    />
+                    <MenuItems
+                     onClick={()=>router.push('/properties')}
+                     label="MY Properties"
+                    />
+                  </div>
+                  ) : (
+                    <div className='hidden sm:flex'>
+                      <MenuItems
+                       onClick={loginModel.onOpen}
+                       label="Login"
+                      />
+                      <MenuItems
+                       onClick={registerModel.onOpen}
+                       label="SignUp"
+                      />
+                    </div>
+
+                  )}
            <div 
            onClick={toggleMenu}
            className="
-           p-4
+           p-3
            md:py-1
            md:px-1
            border-[1px]
            border-neutral-200
+           hover:bg-neutral-100
            flex
            flex-row
            items-center
@@ -79,13 +113,13 @@ const UserMenu:React.FC <UserMenuProps> = ({
            "
            >
              <AiOutlineMenu />
-             <div className="hidden md:block">
+             <div className="hidden md:block ">
               <Avatar src = {currentUser?.image} />
              </div>
            </div>
         </div>
         {open && (
-            <div className=" bg-white absolute rounded-xl shadow-md w-[40vw] md:w-3/4 overflow-hidden right-0 top-12 text-sm">
+            <div className=" bg-white absolute rounded-xl shadow-md w-[40vw] md:w-1/4 overflow-hidden right-0 top-12 text-sm">
                  <div className="flex flex-col cursor-pointer">
                   {currentUser ? (
                     <>
@@ -107,7 +141,7 @@ const UserMenu:React.FC <UserMenuProps> = ({
                     />
                     <MenuItems
                      onClick={rentModel.onOpen}
-                     label="HMS My Home"
+                     label="Rent Home"
                     />
                     <hr />
                     <MenuItems
