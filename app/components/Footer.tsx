@@ -2,9 +2,11 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react'
+import useContactModel from '../hooks/useContact';
 
 export function Footer() {
     const router = useRouter()
+    const contactModel = useContactModel();
   return (
     <section className="relative border-t-2 mt-8 overflow-hidden bg-[#ffff] py-8">
       <div className="container relative z-1 mx-auto px-4">
@@ -53,6 +55,7 @@ export function Footer() {
               </li>
               <li className="p-5">
                 <a
+                  onClick={contactModel.onOpen}
                   className="font-medium text-gray-600 hover:text-gray-700"
                   href="#"
                 >

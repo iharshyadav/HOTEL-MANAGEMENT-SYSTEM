@@ -9,6 +9,7 @@ import getCurrentUser from "./actions/getCurrentUser";
 import RentModel from "./components/models/RentModel";
 import ClientOnly from "./components/ClientOnly";
 import SearchModel from "./components/models/SearchModel";
+import ContactModel from "./components/models/ContactModel";
 
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default async function RootLayout({
         <RentModel />
         <LoginModel />
         <RegisterModel />
+        <ContactModel />
         <Navbar currentUser = {currentUser} />
         </ClientOnly>
         <div className="pb-20">

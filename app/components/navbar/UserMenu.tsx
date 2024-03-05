@@ -9,6 +9,7 @@ import { signOut } from "next-auth/react"
 import { safeUser } from "@/app/types"
 import useRentModel from "@/app/hooks/useRentModel"
 import { useRouter } from "next/navigation"
+import useContactModel from "@/app/hooks/useContact"
 
 interface UserMenuProps {
   currentUser?: safeUser | null
@@ -23,6 +24,7 @@ const UserMenu:React.FC <UserMenuProps> = ({
   const loginModel = useLoginModel();
   const rentModel = useRentModel();
   const router = useRouter();
+  const contactModel = useContactModel();
 
     const [open, setOpen] = useState(false)
 
@@ -67,19 +69,19 @@ const UserMenu:React.FC <UserMenuProps> = ({
            {currentUser ? (
                     <div className='hidden sm:flex'>
                     <MenuItems
-                     onClick={()=>router.push('/trips')}
+                     onClick={()=>{router.push('/trips');setOpen(false)}}
                      label="My Trips"
                     />
                     <MenuItems
-                     onClick={()=>router.push('/favourites')}
+                     onClick={()=>{router.push('/favourites');setOpen(false)}}
                      label="MY Favourite"
                     />
                     <MenuItems
-                     onClick={()=>router.push('/reservations')}
+                     onClick={()=>{router.push('/reservations');setOpen(false)}}
                      label="My Reservation"
                     />
                     <MenuItems
-                     onClick={()=>router.push('/properties')}
+                     onClick={()=>{router.push('/properties');setOpen(false)}}
                      label="MY Properties"
                     />
                   </div>
@@ -145,6 +147,10 @@ const UserMenu:React.FC <UserMenuProps> = ({
                     <MenuItems
                      onClick={rentModel.onOpen}
                      label="Rent Home"
+                    />
+                    <MenuItems
+                     onClick={contactModel.onOpen}
+                     label="Contact Us"
                     />
                     <hr />
                     <MenuItems
