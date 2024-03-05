@@ -58,7 +58,7 @@ export default async function getListings (
           }
       
           if (locationvalue) {
-            query.locationValue = locationvalue;
+            query.locationvalue = locationvalue;
           }
       
           if (startDate && endDate) {

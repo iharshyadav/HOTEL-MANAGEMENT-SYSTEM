@@ -80,7 +80,7 @@ const SearchModel = () => {
             guestCount,
             bathroomCount,
             roomCount,
-            locationValue : location?.value
+            locationvalue : location?.value
         };
 
         if(dateRange.startDate){

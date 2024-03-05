@@ -22,18 +22,18 @@ const Search:React.FC<SearchProps> = ({
 
   const { getByValue } = useCountries();
 
-  const  locationvalue = params?.get('locationvalue'); 
+  const  locationValue = params?.get('locationValue'); 
   const  startDate = params?.get('startDate');
   const  endDate = params?.get('endDate');
   const  guestCount = params?.get('guestCount');
 
   const locationLabel = useMemo(() => {
-    if (locationvalue) {
-      return getByValue(locationvalue as string)?.label;
+    if (locationValue) {
+      return getByValue(locationValue as string)?.label;
     }
 
     return 'Find Location';
-  }, [locationvalue, getByValue]);
+  }, [locationValue, getByValue]);
 
   const durationLabel = useMemo(() => {
     if (startDate && endDate) {

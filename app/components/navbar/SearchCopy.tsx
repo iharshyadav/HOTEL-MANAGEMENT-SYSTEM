@@ -15,7 +15,7 @@ const SearchDesktop = () => {
 
   const { getByValue } = useCountries();
 
-  const  locationValue = params?.get('locationValue'); 
+  const  locationValue = params?.get('locationvalue'); 
   const  startDate = params?.get('startDate');
   const  endDate = params?.get('endDate');
   const  guestCount = params?.get('guestCount');
