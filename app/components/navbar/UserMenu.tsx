@@ -12,10 +12,12 @@ import { useRouter } from "next/navigation"
 
 interface UserMenuProps {
   currentUser?: safeUser | null
+    active ? : boolean;
 }
 
 const UserMenu:React.FC <UserMenuProps> = ({
-  currentUser
+  currentUser,
+  active
 }) => {
   const registerModel = useRegisterModel();
   const loginModel = useLoginModel();
@@ -44,21 +46,22 @@ const UserMenu:React.FC <UserMenuProps> = ({
      text-black
     "
     >
-        <div className="flex flex-row items-center gap-3"> 
+        <div className="flex flex-row items-center sm:gap-3 gap-4"> 
            <div
            onClick={onRent}
-           className="
-           hidden
-           md:block
-           text-[1vw]
+           className={`
+           ${active ? 'hidden sm:block' : 'block'}
+           sm:text-[1vw]
+           text-[3.8vw]
+           pt-[3px]
            font-bold
-           py-2
-           px-4
+           sm:py-2
+           sm:px-4
            rounded-full
            hover:bg-neutral-100
            transition
            cursor-pointer
-           " >
+           `}>
               Rent Home
            </div>
            {currentUser ? (
@@ -124,19 +127,19 @@ const UserMenu:React.FC <UserMenuProps> = ({
                   {currentUser ? (
                     <>
                     <MenuItems
-                     onClick={()=>router.push('/trips')}
+                     onClick={()=>{router.push('/trips');setOpen(false)}}
                      label="My Trips"
                     />
                     <MenuItems
-                     onClick={()=>router.push('/favourites')}
+                     onClick={()=>{router.push('/favourites');setOpen(false)}}
                      label="MY Favourite"
                     />
                     <MenuItems
-                     onClick={()=>router.push('/reservations')}
+                     onClick={()=>{router.push('/reservations');setOpen(false)}}
                      label="My Reservation"
                     />
                     <MenuItems
-                     onClick={()=>router.push('/properties')}
+                     onClick={()=>{router.push('/properties');setOpen(false)}}
                      label="MY Properties"
                     />
                     <MenuItems

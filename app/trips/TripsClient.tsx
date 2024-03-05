@@ -10,6 +10,7 @@ import ListingCard from "@/app/components/listings/ListingCard";
 import axios from "axios";
 import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
+import { Footer } from "../components/Footer";
 
 
 interface TripsClientProps {
@@ -73,6 +74,7 @@ const TripsClient : React.FC<TripsClientProps> = ({
           />
         ))}
       </div>
+      <Footer />
     </Container>
   )
 }

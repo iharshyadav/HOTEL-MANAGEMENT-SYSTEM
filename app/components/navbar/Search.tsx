@@ -7,8 +7,14 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi"
 
+interface SearchProps {
+  active ? : boolean;
+}
 
-const Search = () => {
+
+const Search:React.FC<SearchProps> = ({
+  active
+}) => {
 
   const searchModel = useSearchModel();
   const params = useSearchParams();
@@ -53,18 +59,19 @@ const Search = () => {
     return 'Add Guests';
   }, [guestCount]);
 
-  if (pathName === '/'){
-    return null;
-  }
+  // if (pathName === '/'){
+  //   return null;
+  // }
 
   return (
     <div
     onClick={searchModel.onOpen} 
-    className='
+    className={`
     border-[1px]
     w-full
     md:w-auto
-    
+    ${pathName !== '/' ? 'hidden sm:block' : ''}
+    ${active && pathName === '/' ? 'block' : 'hidden'}
     sm:py-2
     sm:px-4
     rounded-lg
@@ -72,7 +79,7 @@ const Search = () => {
     hover:shadow-md
     transition
     cursor-pointer
-    '
+    `}
     >
         <div className='
           flex

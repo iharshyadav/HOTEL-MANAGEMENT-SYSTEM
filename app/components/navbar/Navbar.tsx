@@ -47,14 +47,14 @@ const Navbar : React.FC <NavbarProps> = ({currentUser}) => {
                  md:gap-0
               "
               >
-             <div className="flex items-center justify-center gap-16 text-white">
+             <div className="flex items-center justify-center sm:gap-16 gap-4 text-white">
              <Logo />
               <Suspense fallback={<div>Loading...</div>}>
              <Categories active = {active} />
           </Suspense>
              </div>
-              <Search />
-              <UserMenu currentUser = {currentUser} />
+              <Search active = {active} />
+              <UserMenu currentUser = {currentUser} active = {active}/>
               </div>
           </Container>
           {/* <hr className="mt-3" /> */}

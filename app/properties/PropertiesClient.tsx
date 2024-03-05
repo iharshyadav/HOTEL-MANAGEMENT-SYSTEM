@@ -8,6 +8,7 @@ import { safeListing, safeUser } from "../types"
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
+import { Footer } from "../components/Footer";
 
 interface PropertiesClientProps {
     listings : safeListing[] ;
@@ -69,6 +70,7 @@ const PropertiesClient:React.FC<PropertiesClientProps> = ({
           />
         ))}
       </div>
+      <Footer />
     </Container>
   )
 }

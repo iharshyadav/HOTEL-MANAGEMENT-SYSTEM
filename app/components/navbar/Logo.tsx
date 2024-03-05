@@ -19,7 +19,7 @@ const Logo = ()=>{
         <Image
           onClick={()=>{router.push('/')}}
           alt="Logo"
-          className=" curser-pointer block sm:hidden"
+          className=" curser-pointer block ml-1 sm:hidden"
           height="32"
           width="32"
           src="/images/logo.png"

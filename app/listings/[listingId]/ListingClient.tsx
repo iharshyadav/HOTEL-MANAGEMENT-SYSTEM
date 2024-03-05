@@ -1,6 +1,7 @@
 "use client"
 
 import Container from "@/app/components/Container";
+import { Footer } from "@/app/components/Footer";
 import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import ListingReservation from "@/app/components/listings/ListingReservation";
@@ -183,6 +184,7 @@ const ListingClient: React.FC <ListingClientProps> = ({
                </div>
             </div>
         </div>
+        <Footer />
     </Container>
   )
 }

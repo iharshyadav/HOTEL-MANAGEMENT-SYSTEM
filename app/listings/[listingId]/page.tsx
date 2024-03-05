@@ -4,6 +4,7 @@ import EmptyState from "@/app/components/EmptyState";
 import ListingClient from "./ListingClient";
 import getReservation from "@/app/actions/getReservations";
 import ClientOnly from "@/app/components/ClientOnly";
+import { Footer } from "@/app/components/Footer";
 
 interface IParams {
     listingId ? : string;
@@ -18,13 +19,16 @@ const ListingPage = async ( {params} : {params : IParams}) => {
     if(!listing){
         return (
             <ClientOnly>
+            <div className="sm:pt-24 pt-20"></div>
             <EmptyState />
+            <Footer />
             </ClientOnly>
         )
     }
 
   return (
     <ClientOnly>
+        <div className="sm:pt-24 pt-20"></div>
         <ListingClient
         listing = {listing}
         reservations={reservations}

@@ -134,7 +134,7 @@ const Categories : React.FC<CategoriesProps>  = ({
            pl-3
            px-2
            rounded-full
-           bg-neutral-100
+           sm:bg-neutral-100
            transition
            cursor-pointer">
         <span>Categories</span> 

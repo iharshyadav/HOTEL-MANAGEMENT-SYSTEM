@@ -1,8 +1,6 @@
 "use client"
 
-import axios from "axios"
 import { useCallback, useState } from "react"
-import { AiFillGithub } from "react-icons/ai"
 import { FcGoogle } from "react-icons/fc"
 import { 
     FieldValues,
@@ -106,12 +104,6 @@ const LoginModel = () => {
         label="Continue with Google"
         icon={FcGoogle}
         onClick={()=>signIn("google")}
-        />
-         <Button
-        outline
-        label="Continue with Github"
-        icon={AiFillGithub}
-        onClick={()=>signIn("github")}
         />
         <div className="
         text-neutral-500

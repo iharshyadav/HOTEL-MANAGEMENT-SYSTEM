@@ -1,6 +1,7 @@
 "use client"
 
 import Container from "../components/Container";
+import { Footer } from "../components/Footer";
 import Heading from "../components/Heading";
 import ListingCard from "../components/listings/ListingCard";
 import { safeListing, safeUser } from "../types"
@@ -44,6 +45,7 @@ const FavoritesClient : React.FC <FavoritesClientProps> = ({
           />
         ))}
       </div>
+      <Footer />
     </Container>
   )
 }

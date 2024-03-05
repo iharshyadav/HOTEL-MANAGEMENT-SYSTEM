@@ -2,6 +2,7 @@ import getCurrentUser from "../actions/getCurrentUser"
 import getListings from "../actions/getListings";
 import ClientOnly from "../components/ClientOnly";
 import EmptyState from "../components/EmptyState";
+import { Footer } from "../components/Footer";
 import PropertiesClient from "./PropertiesClient";
 
 const PropertiesPage = async () => {
@@ -24,16 +25,19 @@ const PropertiesPage = async () => {
         return (
 
           <ClientOnly>
+            <div className="sm:pt-24 pt-20"></div>
             <EmptyState
             title=""
             subTitle=""
             />
+            <Footer />
             </ClientOnly>
         )
     }
 
   return (
     <ClientOnly>
+      <div className="sm:pt-24 pt-20"></div>
         <PropertiesClient
          currentUser = {currentUser}
          listings = {listings}

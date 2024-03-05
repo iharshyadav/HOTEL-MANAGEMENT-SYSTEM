@@ -8,7 +8,7 @@ import { useMemo } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 
-const Search = () => {
+const SearchDesktop = () => {
 
   const searchModel = useSearchModel();
   const params = useSearchParams();
@@ -102,4 +102,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default SearchDesktop
