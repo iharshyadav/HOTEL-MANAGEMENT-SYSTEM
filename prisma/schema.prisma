@@ -81,3 +81,10 @@ model Reservation {
   listing Listing @relation(fields: [listingId] , references: [id], onDelete: Cascade)
 
 }
+
+model UserSubscription {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+  stripeCustomerId String?   @unique @map(name: "stripe_customer_id")
+  stripePriceId String?   @map(name: "stripe_price_id")
+}

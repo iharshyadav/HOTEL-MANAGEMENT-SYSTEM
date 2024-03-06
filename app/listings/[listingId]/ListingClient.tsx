@@ -7,11 +7,12 @@ import ListingInfo from "@/app/components/listings/ListingInfo";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 import {categories} from "@/app/components/navbar/Categories";
 import useLoginModel from "@/app/hooks/useLoginModel";
+import { getStripe } from "@/app/lib/stripe";
 import { safeListing, safeReservation, safeUser } from "@/app/types";
 import axios from "axios";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
-import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+// import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import toast from "react-hot-toast";
 
@@ -37,7 +38,7 @@ const ListingClient: React.FC <ListingClientProps> = ({
 }) => {
 
     const loginModel = useLoginModel();
-    const router = useRouter();
+    // const router = useRouter();
 
     const disableDates = useMemo(()=>{
 
@@ -66,7 +67,7 @@ const ListingClient: React.FC <ListingClientProps> = ({
     const [totalPrice, setTotalPrice] = useState(listing.price);
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
-    const OnCreateReservations = useCallback(()=>{
+    const OnCreateReservations = async ()=>{
         // check user exist
         // loading state to true
         // hit api (axios(post))
@@ -79,33 +80,32 @@ const ListingClient: React.FC <ListingClientProps> = ({
         }
 
         setIsLoading(true);
+        
+        const stripe = await getStripe();
 
-        axios.post('/api/reservations',{
-           totalPrice,
-           startDate : dateRange.startDate,
-           endDate : dateRange.endDate,
-           listingId : listing?.id,
-        })
-        .then(()=>{
-            toast.success("Reservation Created Successfully!")
-            setDateRange(initialDateRange);
-            // Redirect to /trip
-            router.push("/trips");
-        })
-        .catch(()=>{
-            toast.error("Failed to create Resevation!")
-        })
-        .finally(()=>{
-            setIsLoading(false);
-        })
-    },[
-        currentUser,
-        dateRange,
-        listing?.id,
-        totalPrice,
-        loginModel,
-        router
-    ]);
+        
+
+    try {
+        const { data: stripeSession } = await axios.post('/api/stripe',{
+            totalPrice,
+            startDate : dateRange.startDate,
+            endDate : dateRange.endDate,
+         })
+         if (stripe) {
+            const result = await stripe.redirectToCheckout({
+              sessionId: stripeSession.id,
+            });
+    
+            if (result.error) {
+              toast.error('Payment Failed');
+            }
+          }
+        
+    } catch (error) {
+        console.log('Error: ', error);
+        toast.error('An error occured');
+    };
+}
 
     // creating an useEffect hook to calculate total days and total price
 
