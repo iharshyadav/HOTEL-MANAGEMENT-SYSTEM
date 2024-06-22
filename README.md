@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>HOTEL MANAGEMENT SYSTEM(HMS):</h1>
 
 ## Getting Started
 
-First, run the development server:
+- <h1>ABOUT</h1>
+
+- Developed a robust web application, HMS, utilizing Next.js, TypeScript, and MongoDB (connected via Prisma) for advanced hotel management. Incorporated advanced features like:
+- House marking as favorites
+- Property filtering based on location, guest count, and availability
+- Reservation functionality with specified date selection
+- Integrated Stripe payment gateway.
+- Leveraged Zustand for state management, Cloudinary for image storage, NextAuth for authentication, and Tailwind for responsive styling. The comprehensive workflow diagram illustrates the seamless functionality of the application.
+
+```bash
+https://hms-hotel.vercel.app
+```
+
+<h1>INSTALLATION STEPS :</h1>
+
+## CLONE THE REPO :
+
+```bash
+git clone https://github.com/iharshyadav/HOTEL-MANAGEMENT-SYSTEM.git
+```
+
+## INSTALL THE DEPENDENCIES
+
+```bash
+npm install
+```
+
+## .env Example:
+
+```bash
+DATABASE_URL= ""
+NEXTAUTH_SECRET = ""
+GITHUB_ID = ""
+GITHUB_SECRET = ""
+GOOGLE_ID = ""
+GOOGLE_SECRET = ""
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME = ""
+STRIPE_API_KEY = ""
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = ""
+```
+
+## RUN THE PROJECT:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h1>Any Query</h1> 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Raise issue:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+https://github.com/iharshyadav/HOTEL-MANAGEMENT-SYSTEM/issues
+```
