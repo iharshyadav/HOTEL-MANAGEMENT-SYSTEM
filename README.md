@@ -5,11 +5,20 @@
 - <h1>ABOUT</h1>
 
 - Developed a robust web application, HMS, utilizing Next.js, TypeScript, and MongoDB (connected via Prisma) for advanced hotel management. Incorporated advanced features like:
-- House marking as favorites
 - Property filtering based on location, guest count, and availability
 - Reservation functionality with specified date selection
 - Integrated Stripe payment gateway.
-- Leveraged Zustand for state management, Cloudinary for image storage, NextAuth for authentication, and Tailwind for responsive styling. The comprehensive workflow diagram illustrates the seamless functionality of the application.
+- Leveraged Zustand for state management.
+- Cloudinary for image storage.
+- NextAuth for authentication.
+- Tailwind for responsive styling.
+- The comprehensive workflow diagram illustrates the seamless functionality of the application.
+
+```bash
+https://app.eraser.io/workspace/Q5jwcRlgOBaMTWK4eRV6
+```
+
+- <h1>Visit the Website </h1>
 
 ```bash
 https://hms-hotel.vercel.app
